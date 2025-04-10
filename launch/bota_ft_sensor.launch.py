@@ -18,9 +18,21 @@ def generate_launch_description():
         ),
         
         DeclareLaunchArgument(
-            'publish_rate',
+            'publish_intervall',
             default_value='10.0',
-            description='Rate at which to read the sensor and publish messages (Hz)'
+            description='Intervall between two readings (ms)'
+        ),
+
+        DeclareLaunchArgument(
+            'zero_samples',
+            default_value='100',
+            description='Amount of samples taken to zero out the sensor'
+        ),
+
+        DeclareLaunchArgument(
+            'zero_timeout_ms',
+            default_value='5000',
+            description='Maximum allowed time to gather the defined amount of samples (ms)'
         ),
         
         Node(
